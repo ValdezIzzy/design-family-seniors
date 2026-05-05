@@ -3,6 +3,8 @@ const { name, image, favorite_emoji, github_permalink, github_profile, codepen_p
 const slug = name.toLowerCase().replace(/\s+/g, "-");
 ---
 
+<!-- HTML -->
+
 <figure class="card">
   <img src={image} alt={name} loading="lazy" />
   <figcaption class="card-name">
@@ -15,6 +17,7 @@ const slug = name.toLowerCase().replace(/\s+/g, "-");
   </nav>
 </figure>
 
+<!-- CSS -->
 <style>
   .card {
     border: 0;
