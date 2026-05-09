@@ -8,7 +8,8 @@ const slug = name.toLowerCase().replace(/\s+/g, "-");
 <figure class="card">
   <img src={image} alt={name} loading="lazy" />
   <figcaption class="card-name">
-    <a href={`/${slug}`}><span class="card-emoji">{favorite_emoji}</span> {name}</a>
+    <span class="card-emoji">{favorite_emoji}</span>
+    <a href={`/${slug}`}>{name}</a>
   </figcaption>
   <nav class="card-links">
     <a href={github_permalink} target="_blank" rel="noopener">Portfolio</a>
@@ -20,27 +21,55 @@ const slug = name.toLowerCase().replace(/\s+/g, "-");
 <!-- CSS -->
 <style>
   .card {
-    background: teal;
-    border: 0;
+    position: relative;
+    background-image: radial-gradient(circle, #488286, #77878B);
+    border: 3px solid lightgray;
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    border: 1px solid lightgray;
+    gap: 0.75rem;
+    border-radius: 1rem;
   }
+
+  /* .card:hover {
+    transform: translateY(-4px);
+  } */
 
   .card img {
     width: 100%;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     display: block;
+    border-radius: 0.75rem;
   }
 
   .card-name {
-    }
+    color: white;
+    font-size: 2rem;  
+    font-weight: 700;
+  }
+
+  .card-name a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid currentColor;
+  }
 
   .card-emoji {
-  
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    width: 3.25rem;
+    height: 3.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: white; */
+    border-radius: 50%;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
   }
 
   .card-links {
@@ -51,12 +80,17 @@ const slug = name.toLowerCase().replace(/\s+/g, "-");
 
   .card-links a {
     text-decoration: none;
-    color: goldenrod;
+    color: black;
     border-bottom: 1px solid currentColor;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
   }
 
   .card-links a:hover {
-    background: gray;
+    background: #34113F;
     color: white;
   }
 </style>

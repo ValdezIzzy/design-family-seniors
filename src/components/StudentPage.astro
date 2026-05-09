@@ -2,23 +2,103 @@
 const { name, image, favorite_emoji, github_permalink, github_profile, codepen_profile, bio } = Astro.props;
 ---
 
-<style>
-  .backtohome {
-    background: red;
-    padding: 1.5em;
-    border-radius: 6px;
-  }
-</style>
-
 
 <button onclick="window.location.href = '/'" class="backtohome">Back to Home</button>
 
+<main class="student-layout">
+  <img src={image} alt={name} />
 
-<img src={image} alt={name} />
-<h1><span>{favorite_emoji}</span> {name}</h1>
-<nav>
-  <a href={github_permalink} target="_blank" rel="noopener">Portfolio</a>
-  <a href={github_profile} target="_blank" rel="noopener">GitHub</a>
-  <a href={codepen_profile} target="_blank" rel="noopener">CodePen</a>
-</nav>
-<p> {bio} </p>
+  <section class="content">
+    <h1>
+      <span>{favorite_emoji}</span> {name}
+    </h1>
+
+    <p id="bio">{bio}</p>
+
+    <nav>
+      <a href={github_permalink} target="_blank" rel="noopener">Portfolio</a>
+      <a href={github_profile} target="_blank" rel="noopener">GitHub</a>
+      <a href={codepen_profile} target="_blank" rel="noopener">CodePen</a>
+    </nav>
+  </section>
+</main>
+
+
+
+
+
+<style>
+  .backtohome {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    margin: 1rem;
+  }
+
+  .backtohome:hover {
+    background: #34113F;
+    color: white;
+  }
+
+  .student-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .student-layout img {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    border-radius: 1rem;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  #bio {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #555;
+  }
+
+  nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    background: #222E50;
+    color: white;
+    transition: 0.2s ease;
+  }
+
+  nav a:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(5px);
+    color: black;
+  }
+</style>
